@@ -6,6 +6,8 @@ object OOBasics extends App {
   println(person.age)
   person.greet("Daniel")
   person.greet()
+  
+  val person2 = new Person()
 }
 
 // constructor
@@ -21,7 +23,7 @@ class Person(name: String, val age: Int = 0) {
   
   // multiple constructors
   def this(name: String) = this(name, 0)
-  def this() = this("Joh Doe")
+  def this() = this("John Doe")
 } // all side effects in class body will be executed
 
 
