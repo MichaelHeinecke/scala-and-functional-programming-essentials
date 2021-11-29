@@ -1,6 +1,6 @@
 package lectures.oop
 
-object InheritanceAndTraits extends App {
+object Inheritance extends App {
   
   // Scala has single class inheritance
   class Animal {
