@@ -86,18 +86,12 @@ object ListTest extends App {
   println(listOfIntegers.toString())
   println(listOfStrings.toString())
 
-  println(listOfIntegers.map(new Function1[Int, Int] {
-    override def apply(element: Int): Int = element * 2
-  }).toString)
+  println(listOfIntegers.map(_ * 2).toString) // element => element * 2
 
-  println(listOfIntegers.filter(new Function1[Int, Boolean] {
-    override def apply(element: Int): Boolean = element % 2 == 0
-  }).toString)
+  println(listOfIntegers.filter(_ % 2 == 0).toString) // element => element % 2 == 0
 
   println((listOfIntegers ++ anotherListOfIntegers).toString)
-  println(listOfIntegers.flatMap(new Function1[Int, MyList[Int]] {
-    override def apply(element: Int): MyList[Int] = Cons(element, Cons(element + 1, Empty))
-  }).toString)
+  println(listOfIntegers.flatMap(element => Cons(element, Cons(element + 1, Empty))).toString)
 
   // equals is implemented by case class
   println(clonedListOfIntegers == listOfIntegers)
