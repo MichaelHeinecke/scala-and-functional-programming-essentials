@@ -9,4 +9,6 @@ object Playground {
 
   def msg = "I was compiled by dotty :)"
 
+  class Cinderella
+  class SnowWhite
 }
