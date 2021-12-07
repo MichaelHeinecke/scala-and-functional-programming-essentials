@@ -1,0 +1,105 @@
+package lectures.patternmatching
+
+object BracelessSyntax {
+
+  // if - expressions
+  val anIfExpression = if (2 > 3) "bigger" else "smaller"
+
+  // java-style
+  val anIfExpression_v2 =
+    if (2 > 3) {
+      "bigger"
+    } else {
+      "smaller"
+    }
+
+  // compact
+  val anIfExpression_v3 =
+    if (2 > 3) "bigger"
+    else "smaller"
+
+  // Scala 3
+  val anIfExpression_v4 =
+    if 2 > 3 then
+      "bigger" // higher indentation than the if part
+    else
+      "smaller"
+
+  val anIfExpression_v5 =
+    if 2 > 3 then
+      val result = "bigger"
+      result
+    else
+      val result = "smaller"
+      result
+
+  // Scala 3 one-liner
+  val anIfExpression_v6 = if 2 > 3 then "bigger" else "smaller"
+
+
+  // for comprehensions
+  val aForComprehension = for {
+    n <- List(1, 2, 3)
+    s <- List("black", "white")
+  } yield s"$n$s"
+
+  // Scala 3
+  val aForComprehension_v2 =
+    for
+      n <- List(1, 2, 3)
+      s <- List("black", "white")
+    yield s"$n$s"
+
+
+  // pattern matching
+  val meaningOfLife = 42
+  val aPatternMatch = meaningOfLife match {
+    case 1 => "the ONE"
+    case 2 => "double or nothing"
+    case 3 => "third time is the charm"
+    case _ => "something else"
+  }
+
+  // Scala 3
+  val aPatternMatch_v2 =
+    meaningOfLife match
+      case 1 => "the ONE"
+      case 2 => "double or nothing"
+      case 3 => "third time is the charm"
+      case _ => "something else"
+
+
+  // methods without braces
+  def computeMeaningOfLife(arg: Int): Int =
+    val partialResult = 40
+
+
+
+
+
+    partialResult + 2 // still part of the braceless code block
+
+
+  // class definition with significant indentation (same for traits, objects, enums, etc.)
+  class Animal: // colon token indicates to compiler to expect body of Animal with indentation
+    def eat(): Unit =
+      println("I'm eating")
+    end eat
+
+    def grow(): Unit =
+      println("I'm growing")
+
+    // 3000 more lines of code
+  end Animal // for if, match, for, methods, classes, traits, enums, objects
+
+
+  // anonymous classes
+  val aSpecialAnimal = new Animal:
+    override def eat(): Unit = println("I'm special")
+
+
+  def main(args: Array[String]): Unit = {
+    println(anIfExpression_v5)
+  }
+
+}
